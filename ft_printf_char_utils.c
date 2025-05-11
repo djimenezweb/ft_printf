@@ -1,30 +1,32 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf_char_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 14:24:51 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/11 23:23:46 by danielji         ###   ########.fr       */
+/*   Created: 2025/05/11 22:55:50 by danielji          #+#    #+#             */
+/*   Updated: 2025/05/11 23:00:15 by danielji         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdint.h>
+// Writes a single character
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-int		ft_printf(char const *str, ...);
-void	ft_putstr(char *s);
-void	ft_putnbr(int n);
-void	ft_putnbr_u(unsigned int n);
-void	ft_putchar(char c);
-void	ft_puthex(unsigned int num, char *base);
-void	ft_puthex_ptr(uintptr_t num, char *base);
-void	ft_putptr(void *ptr);
+// Writes a string character by character
+void	ft_putstr(char *s)
+{
+	char	c;
 
-#endif
+	while (*s)
+	{
+		c = *s;
+		write(1, &c, 1);
+		s++;
+	}
+}
