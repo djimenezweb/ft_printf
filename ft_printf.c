@@ -6,24 +6,26 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:12:27 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/12 15:18:26 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/12 16:00:39 by danielji         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "libftprintf.h"
 
-void	putargument(char c, va_list	arg_ptr)
+ssize_t	ft_putargument(char c, va_list	arg_ptr)
 {
+	ssize_t	written;
+
 	if (c == '%')
-		ft_putchar('%');
+		written = ft_putchar('%');
 	else if (c == 'c')
-		ft_putchar(va_arg(arg_ptr, int));
+		written = ft_putchar(va_arg(arg_ptr, int));
 	else if (c == 's')
-		ft_putstr(va_arg(arg_ptr, char *));
+		written = ft_putstr(va_arg(arg_ptr, char *));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(arg_ptr, int));
+		written = ft_putnbr(va_arg(arg_ptr, int));
 	else if (c == 'u')
-		ft_putnbr_u(va_arg(arg_ptr, unsigned int));
+		written = ft_putnbr_u(va_arg(arg_ptr, unsigned int));
 	else if (c == 'x')
 		ft_puthex(va_arg(arg_ptr, int), "0123456789abcdef");
 	else if (c == 'X')
@@ -31,38 +33,49 @@ void	putargument(char c, va_list	arg_ptr)
 	else if (c == 'p')
 		ft_putptr(va_arg(arg_ptr, void *));
 	else
-		ft_putchar(c);
+		written = ft_putchar(c);
+	return (written);
 }
 
 int	ft_printf(char const *str, ...)
 {
 	int		i;
 	va_list	arg_ptr;
+	ssize_t	total;
+	ssize_t	written;
 
 	i = 0;
+	total = 0;
+	written = 0;
 	va_start(arg_ptr, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
-			putargument(str[i + 1], arg_ptr);
+			written = ft_putargument(str[i + 1], arg_ptr);
+			if (written < 0)
+				return (-1);
+			total += written;
 			i++;
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			written = ft_putchar(str[i]);
+			if (written < 0)
+				return (-1);
+			total += written;
 		}
 		i++;
 	}
 	va_end(arg_ptr);
-	return (1);
+	return ((int)total);
 }
 
 // DELETE OR COMMENT
 int	main(void)
 {
 	int result = 0;
-	result = ft_printf("%s", "Hola");
+	result = ft_printf("%d", 11111);
 	printf("\n%d\n", result);
 /* 	int ptr = 4;
 	ft_printf("  output -> hola %c%i%% %d, %i, %u, %i, %s, hex1234=%x\n", 'F', 49, 300, -299, 12, -2147483647, "adiós", 1234);
