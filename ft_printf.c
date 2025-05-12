@@ -6,7 +6,7 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:12:27 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/12 16:00:39 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/12 18:40:38 by danielji         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -75,7 +75,7 @@ int	ft_printf(char const *str, ...)
 int	main(void)
 {
 	int result = 0;
-	result = ft_printf("%d", 11111);
+	result = ft_printf("%s", "Guten Morgen 123!");
 	printf("\n%d\n", result);
 /* 	int ptr = 4;
 	ft_printf("  output -> hola %c%i%% %d, %i, %u, %i, %s, hex1234=%x\n", 'F', 49, 300, -299, 12, -2147483647, "adiós", 1234);
@@ -88,6 +88,6 @@ int	main(void)
 	   printf("expected -> %x\n", 255);
 
 	ft_printf("  output -> %x\n", -10);
-	   printf("expected -> %x\n", -10); */
+	   printf("expected -> %x\n", -10);*/
 	return (0);
 }
