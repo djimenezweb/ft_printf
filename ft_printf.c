@@ -6,20 +6,20 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:12:27 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/12 15:01:46 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:18:26 by danielji         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "libftprintf.h"
 
-void	putargument(char c, va_list	arg_ptr, ssize_t *count)
+void	putargument(char c, va_list	arg_ptr)
 {
 	if (c == '%')
-		ft_putchar('%', count);
+		ft_putchar('%');
 	else if (c == 'c')
-		ft_putchar(va_arg(arg_ptr, int), count);
+		ft_putchar(va_arg(arg_ptr, int));
 	else if (c == 's')
-		ft_putstr(va_arg(arg_ptr, char *), count);
+		ft_putstr(va_arg(arg_ptr, char *));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(arg_ptr, int));
 	else if (c == 'u')
@@ -31,33 +31,31 @@ void	putargument(char c, va_list	arg_ptr, ssize_t *count)
 	else if (c == 'p')
 		ft_putptr(va_arg(arg_ptr, void *));
 	else
-		ft_putchar(c, count);
+		ft_putchar(c);
 }
 
 int	ft_printf(char const *str, ...)
 {
 	int		i;
-	ssize_t	count;
 	va_list	arg_ptr;
 
 	i = 0;
-	count = 0;
 	va_start(arg_ptr, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
-			putargument(str[i +1], arg_ptr, &count);
+			putargument(str[i + 1], arg_ptr);
 			i++;
 		}
 		else
 		{
-			ft_putchar(str[i], &count);
+			ft_putchar(str[i]);
 		}
 		i++;
 	}
 	va_end(arg_ptr);
-	return ((int)count);
+	return (1);
 }
 
 // DELETE OR COMMENT

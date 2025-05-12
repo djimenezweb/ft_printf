@@ -6,7 +6,7 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:24:51 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/12 14:59:49 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:18:26 by danielji         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -21,8 +21,8 @@
 int		ft_printf(char const *str, ...);
 
 // String & Char utils
-void	ft_putchar(char c, ssize_t *count);
-void	ft_putstr(char *s, ssize_t *count);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
 
 // Number utils
 void	ft_putnbr(int n);
