@@ -67,13 +67,16 @@ int	ft_printf(char const *str, ...)
 }
 
 // DELETE OR COMMENT
-/* int	main(void)
+/* 
+# include <stdio.h>
+int	main(void)
 {
 	int result = 0;
 	int expected;
-	result = ft_printf("%s, %% %o", "guten abend", 8);
+	result = ft_printf("%s", "guten abend");
 	printf("\n");
-	expected = printf("%s, %% %o", "guten abend", 8);
+	expected = printf("%s", "guten abend");
 	printf("\nresult: %d | expected: %d\n", result, expected);
 	return (0);
-} */
+}
+*/
