@@ -18,7 +18,7 @@
 # include <stdint.h>
 
 int		ft_printf(char const *str, ...);
-ssize_t	ft_putargument(char c, va_list	arg_ptr);
+ssize_t	ft_putargument(char c, va_list arg_ptr);
 
 // String & Char utils
 ssize_t	ft_putchar(char c);
