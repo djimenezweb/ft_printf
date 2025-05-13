@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:24:51 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/12 16:00:23 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/13 11:56:36 by danielji         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
@@ -30,8 +30,8 @@ ssize_t	ft_putnbr(int n);
 ssize_t	ft_putnbr_u(unsigned int n);
 
 // Hexadecimal utils
-void	ft_puthex(unsigned int num, char *base);
-void	ft_puthex_ptr(uintptr_t num, char *base);
-void	ft_putptr(void *ptr);
+ssize_t	ft_puthex(unsigned int num, char *base);
+ssize_t	ft_puthex_ptr(uintptr_t num, char *base);
+ssize_t	ft_putptr(void *ptr);
 
 #endif
