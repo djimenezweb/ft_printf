@@ -6,15 +6,16 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 22:57:16 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/13 11:56:36 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:16:23 by danielji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-// Writes an unsigned int number as hexadecimal
+// Writes a number as hexadecimal
+// uintptr_t is an unsigned int type designed to hold pointer values
 // Base is passed as a string: "0123456789abcdef" or "0123456789ABCDEF"
-ssize_t	ft_puthex(unsigned int num, char *base)
+ssize_t	ft_puthex(uintptr_t num, char *base)
 {
 	char	c;
 	ssize_t	written;
@@ -27,22 +28,13 @@ ssize_t	ft_puthex(unsigned int num, char *base)
 	return (written);
 }
 
-// Writes a pointer value integer as hexadecimal
-ssize_t	ft_puthex_ptr(uintptr_t num, char *base)
+// Writes an unsigned int number as hexadecimal
+ssize_t	ft_puthex_int(unsigned int num, char *base)
 {
-	char	c;
-	ssize_t	written;
-
-	written = 0;
-	if (num / 16 > 0)
-		written += ft_puthex_ptr(num / 16, "0123456789abcdef");
-	c = base[num % 16];
-	written += write(1, &c, 1);
-	return (written);
+	return (ft_puthex((uintptr_t)num, base));
 }
 
-// Writes a pointer by calling puthex_ptr or writing 0.
-// uintptr_t is an unsigned int type designed to hold pointer values
+// Writes a pointer by calling ft_puthex or writing 0.
 ssize_t	ft_putptr(void *ptr)
 {
 	ssize_t		written;
@@ -59,6 +51,6 @@ ssize_t	ft_putptr(void *ptr)
 	if (num == 0)
 		written += write(1, "0", 1);
 	else
-		written += ft_puthex_ptr(num, "0123456789abcdef");
+		written += ft_puthex(num, "0123456789abcdef");
 	return (written);
 }

@@ -6,7 +6,7 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:24:51 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/13 11:56:36 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:16:20 by danielji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ ssize_t	ft_putnbr(int n);
 ssize_t	ft_putnbr_u(unsigned int n);
 
 // Hexadecimal utils
-ssize_t	ft_puthex(unsigned int num, char *base);
-ssize_t	ft_puthex_ptr(uintptr_t num, char *base);
+ssize_t	ft_puthex(uintptr_t num, char *base);
+ssize_t	ft_puthex_int(unsigned int num, char *base);
 ssize_t	ft_putptr(void *ptr);
 
 #endif

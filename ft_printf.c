@@ -6,7 +6,7 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:12:27 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/13 11:56:36 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:00:17 by danielji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 ssize_t	ft_putargument(char c, va_list	arg_ptr)
 {
-	ssize_t	count;
-
-	count = 0;
 	if (c == '%')
-		count += ft_putchar('%');
+		return (ft_putchar('%'));
 	else if (c == 'c')
-		count += ft_putchar(va_arg(arg_ptr, int));
+		return (ft_putchar(va_arg(arg_ptr, int)));
 	else if (c == 's')
-		count += ft_putstr(va_arg(arg_ptr, char *));
+		return (ft_putstr(va_arg(arg_ptr, char *)));
 	else if (c == 'd' || c == 'i')
-		count += ft_putnbr(va_arg(arg_ptr, int));
+		return (ft_putnbr(va_arg(arg_ptr, int)));
 	else if (c == 'u')
-		count += ft_putnbr_u(va_arg(arg_ptr, unsigned int));
+		return (ft_putnbr_u(va_arg(arg_ptr, unsigned int)));
 	else if (c == 'x')
-		count += ft_puthex(va_arg(arg_ptr, int), "0123456789abcdef");
+		return (ft_puthex_int(va_arg(arg_ptr, int), "0123456789abcdef"));
 	else if (c == 'X')
-		count += ft_puthex(va_arg(arg_ptr, int), "0123456789ABCDEF");
+		return (ft_puthex_int(va_arg(arg_ptr, int), "0123456789ABCDEF"));
 	else if (c == 'p')
-		count += ft_putptr(va_arg(arg_ptr, void *));
+		return (ft_putptr(va_arg(arg_ptr, void *)));
 	else
-		return (-1);
-	return (count);
+		return (0);
 }
 
 int	ft_printf(char const *str, ...)
@@ -67,16 +63,19 @@ int	ft_printf(char const *str, ...)
 }
 
 // DELETE OR COMMENT
-/* 
-# include <stdio.h>
+/* # include <stdio.h>
 int	main(void)
 {
-	int result = 0;
+	int ptr = 15;
+	int *null_ptr = NULL;
+	char *null_str = NULL;
+
+	int result;
 	int expected;
-	result = ft_printf("%s", "guten abend");
+	result = ft_printf("Hola s:%s c:%c d:%d i:%i pcent:%% u:%u x:%x X:%X p:%p p:%p s:%s", "mundo", 'j', -12, -456, 789, -1, -1, &ptr, null_ptr, null_str);
 	printf("\n");
-	expected = printf("%s", "guten abend");
+	expected = printf("Hola s:%s c:%c d:%d i:%i pcent:%% u:%u x:%x X:%X p:%p p:%p s:%s", "mundo", 'j', -12, -456, 789, -1, -1, &ptr, null_ptr, null_str);
 	printf("\nresult: %d | expected: %d\n", result, expected);
 	return (0);
 }
-*/
+ */

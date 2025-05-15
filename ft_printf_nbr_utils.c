@@ -6,7 +6,7 @@
 /*   By: danielji <danielji@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 22:56:52 by danielji          #+#    #+#             */
-/*   Updated: 2025/05/13 11:56:36 by danielji         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:30:30 by danielji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ssize_t	ft_putnbr_u(unsigned int n)
 	{
 		written += ft_putnbr_u(n / 10);
 	}
-	c = (n % 10) + 48;
+	c = (n % 10) + '0';
 	written += write(1, &c, 1);
 	return (written);
 }
