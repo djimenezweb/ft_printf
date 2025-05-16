@@ -1,15 +1,14 @@
-NAME = libftprintf.a
-CC = cc
-AR = ar
-ARFLAGS = rcs
-CFILES = ft_printf.c ft_printf_char_utils.c ft_printf_nbr_utils.c ft_printf_hex_utils.c
-OBJS = $(CFILES:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+NAME	= libftprintf.a
+CC		= cc
+CFLAGS	= -Wall -Werror -Wextra
+AR		= ar rcs
+SRC		= ft_printf.c ft_printf_char_utils.c ft_printf_nbr_utils.c ft_printf_hex_utils.c
+OBJS	= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

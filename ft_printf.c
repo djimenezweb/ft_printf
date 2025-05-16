@@ -62,20 +62,15 @@ int	ft_printf(char const *str, ...)
 	return ((int)count);
 }
 
-// DELETE OR COMMENT
 /* # include <stdio.h>
 int	main(void)
 {
-	int ptr = 15;
-	int *null_ptr = NULL;
-	char *null_str = NULL;
+	int	result;
+	int	expected;
 
-	int result;
-	int expected;
-	result = ft_printf("Hola s:%s c:%c d:%d i:%i pcent:%% u:%u x:%x X:%X p:%p p:%p s:%s", "mundo", 'j', -12, -456, 789, -1, -1, &ptr, null_ptr, null_str);
+	result = ft_printf("Hola");
 	printf("\n");
-	expected = printf("Hola s:%s c:%c d:%d i:%i pcent:%% u:%u x:%x X:%X p:%p p:%p s:%s", "mundo", 'j', -12, -456, 789, -1, -1, &ptr, null_ptr, null_str);
+	expected = printf("Hola");
 	printf("\nresult: %d | expected: %d\n", result, expected);
 	return (0);
-}
- */
+} */
